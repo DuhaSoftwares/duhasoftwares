@@ -1,0 +1,40 @@
+   <!-- Navbar & Carousel Start -->
+   <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="#home" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-cogs me-2"></i>Duha Softwares</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a (click)="navigateToSection('home')" class="nav-item nav-link active">Home</a>
+                <a (click)="navigateToSection('about-us')" class="nav-item nav-link">About</a>
+                <a (click)="navigateToSection('our-services')" class="nav-item nav-link">Services</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
+                    <div class="dropdown-menu m-0">
+                        <a (click)="navigateToSection('our-blogs')" class="dropdown-item">Blog Grid</a>
+                        <!-- <a href="" class="dropdown-item">Blog Detail</a> -->
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <!-- <a href="#pricing" class="dropdown-item">Pricing Plan</a> -->
+                        <a (click)="navigateToSection('our-features')"  class="dropdown-item">Our features</a>
+                        <a (click)="navigateToSection('pricing')"  class="dropdown-item">Our Pricing</a>
+
+                        <!-- <a href="#our-team" class="dropdown-item">Team Members</a> -->
+                        <!-- <a href="#our-testimonial" class="dropdown-item">Testimonial</a> -->
+                        <!-- <a href="#our-qoute" class="dropdown-item">Free Quote</a> -->
+                    </div>
+                </div>
+                <a (click)="navigateToSection('contact-us')"  class="nav-item nav-link">Contact</a>
+            </div>
+            <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+            <a (click)="navigateToSection('footer')" class="btn btn-primary py-2 px-4 ms-3">Register</a>
+        </div>
+    </nav>
+</div>
