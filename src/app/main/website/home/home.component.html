@@ -927,118 +927,142 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-5" style="position: relative">
+        <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader>
         <div
           class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn"
           data-wow-delay="0.9s"
         >
           <form (ngSubmit)="sendEmail()" [formGroup]="contactForm">
             <div class="row g-3">
-              <div class="col-xl-12">
-                <input
-                  type="text"
-                  class="form-control bg-light border-0"
-                  placeholder="Your Name"
-                  formControlName="name"
-                  name="name"
-                  style="height: 55px"
-                  required
-                />
-                <div
-                  *ngIf="
-                    contactForm.get('name')?.invalid &&
-                    (contactForm.get('name')?.dirty ||
-                      contactForm.get('name')?.touched)
-                  "
-                >
-                  <small
-                    class="text-danger"
-                    *ngIf="contactForm.get('name')?.errors?.['required']"
+              <div class="col-xl-12 position-relative">
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name"
+                    formControlName="name"
+                    name="name"
+                    [ngClass]="{
+                      'is-invalid':
+                        contactForm.get('name')?.invalid &&
+                        (contactForm.get('name')?.dirty ||
+                          contactForm.get('name')?.touched)
+                    }"
+                    required
+                  />
+                  <div
+                    *ngIf="
+                      contactForm.get('name')?.invalid &&
+                      (contactForm.get('name')?.dirty ||
+                        contactForm.get('name')?.touched)
+                    "
+                    class="error-message"
                   >
-                    Name is required.
-                  </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="contactForm.get('name')?.errors?.['pattern']"
+                    <small *ngIf="contactForm.get('name')?.errors?.['required']"
+                      >Name is required.</small
+                    >
+
+                    <small *ngIf="contactForm.get('name')?.errors?.['pattern']"
+                      >Name cannot contain numbers.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 position-relative">
+                <div class="input-container">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                    formControlName="email"
+                    name="email"
+                    [ngClass]="{
+                      'is-invalid':
+                        contactForm.get('email')?.invalid &&
+                        (contactForm.get('email')?.dirty ||
+                          contactForm.get('email')?.touched)
+                    }"
+                    required
+                  />
+                  <div
+                    *ngIf="
+                      contactForm.get('email')?.invalid &&
+                      (contactForm.get('email')?.dirty ||
+                        contactForm.get('email')?.touched)
+                    "
+                    class="error-message"
                   >
-                    Name must contain at least 3 characters and cannot be all
-                    numbers.
-                  </small>
+                    <small>Please enter a valid email address.</small>
+                  </div>
                 </div>
               </div>
-              <div class="col-12">
-                <input
-                  type="email"
-                  class="form-control bg-light border-0"
-                  placeholder="Your Email"
-                  formControlName="email"
-                  name="email"
-                  style="height: 55px"
-                  required
-                />
-                <div
-                  *ngIf="
-                    contactForm.get('email')?.invalid &&
-                    (contactForm.get('email')?.dirty ||
-                      contactForm.get('email')?.touched)
-                  "
-                >
-                  <small class="text-danger"
-                    >Please enter a valid email address.</small
+              <div class="col-12 position-relative">
+                <div class="input-container">
+                  <select
+                    class="form-select"
+                    formControlName="service"
+                    name="service"
+                    [ngClass]="{
+                      'is-invalid':
+                        contactForm.get('service')?.invalid &&
+                        (contactForm.get('service')?.dirty ||
+                          contactForm.get('service')?.touched)
+                    }"
+                    required
                   >
+                    <option value="Select A Service" selected disabled>
+                      Select A Service
+                    </option>
+                    <option value="static-website">Static Website</option>
+                    <option value="dynamic-website">Dynamic Website</option>
+                    <option value="app-development">App Development</option>
+                    <option value="software-development">
+                      Software Development
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      contactForm.get('service')?.invalid &&
+                      (contactForm.get('service')?.dirty ||
+                        contactForm.get('service')?.touched)
+                    "
+                    class="error-message dropdown-error"
+                  >
+                    <small>Please select a service.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 position-relative">
+                <div class="input-container">
+                  <textarea
+                    class="form-control"
+                    rows="3"
+                    placeholder="Message"
+                    formControlName="message"
+                    name="message"
+                    [ngClass]="{
+                      'is-invalid':
+                        contactForm.get('message')?.invalid &&
+                        (contactForm.get('message')?.dirty ||
+                          contactForm.get('message')?.touched)
+                    }"
+                    required
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      contactForm.get('message')?.invalid &&
+                      (contactForm.get('message')?.dirty ||
+                        contactForm.get('message')?.touched)
+                    "
+                    class="error-message message"
+                  >
+                    <small>Please enter a message.</small>
+                  </div>
                 </div>
               </div>
               <div class="col-12">
-                <select
-                  class="form-select bg-light border-0"
-                  formControlName="service"
-                  name="service"
-                  style="height: 55px"
-                  required
-                >
-                  <option value="" selected disabled>Select A Service</option>
-                  <option value="static-website">Static Website</option>
-                  <option value="dynamic-website">Dynamic Website</option>
-                  <option value="app-development">App Development</option>
-                  <option value="software-development">
-                    Software Development
-                  </option>
-                </select>
-                <div
-                  *ngIf="
-                    contactForm.get('service')?.invalid &&
-                    (contactForm.get('service')?.dirty ||
-                      contactForm.get('service')?.touched)
-                  "
-                >
-                  <small class="text-danger">Please select a service.</small>
-                </div>
-              </div>
-              <div class="col-12">
-                <textarea
-                  class="form-control bg-light border-0"
-                  rows="3"
-                  placeholder="Message"
-                  formControlName="message"
-                  name="message"
-                  required
-                ></textarea>
-                <div
-                  *ngIf="
-                    contactForm.get('message')?.invalid &&
-                    (contactForm.get('message')?.dirty ||
-                      contactForm.get('message')?.touched)
-                  "
-                >
-                  <small class="text-danger">Please enter a message.</small>
-                </div>
-              </div>
-              <div class="col-12">
-                <button
-                  class="btn btn-dark w-100 py-3"
-                  type="submit"
-                  [disabled]="contactForm.invalid"
-                >
+                <button class="btn btn-dark w-100 py-3" type="submit">
                   Submit
                 </button>
               </div>

@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './internal/header/header.component';
 import { NavBarComponent } from './internal/nav-bar/nav-bar.component';
 import { FooterComponent } from './internal/footer/footer.component';
-
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -18,13 +18,14 @@ import { FooterComponent } from './internal/footer/footer.component';
     HeaderComponent,
     NavBarComponent,
     AboutUsComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,
     WebsiteRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    NgxUiLoaderModule,
+  ],
 })
-export class WebsiteModule { }
+export class WebsiteModule {}

@@ -1,36 +1,70 @@
-
 .LogoSlidercontainer {
-    overflow: hidden;
-    .slider {
-      animation: slidein 30s linear infinite;
-      white-space: nowrap;
-      .logos {
-        width: 100%;
-        display: inline-block;
-        margin: 0px 0;
-        .fab {
-          width: calc(100% / 5);
-          animation: fade-in 0.5s 
-            cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
-        }
+  overflow: hidden;
+  .slider {
+    animation: slidein 30s linear infinite;
+    white-space: nowrap;
+    .logos {
+      width: 100%;
+      display: inline-block;
+      margin: 0px 0;
+      .fab {
+        width: calc(100% / 5);
+        animation: fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
       }
     }
   }
-  
-  @keyframes slidein {
-    from {
-      transform: translate3d(0, 0, 0);
-    }
-    to {
-      transform: translate3d(-100%, 0, 0);
-    }
+}
+
+@keyframes slidein {
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  to {
+    transform: translate3d(-100%, 0, 0);
   }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.position-relative {
+  position: relative;
+}
+
+.input-container {
+  position: relative;
+  input {
+    height: 50px;
+  }
+}
+
+.input-container .form-control,
+.input-container .form-select {
+  padding-right: 120px;
+}
+
+.input-container .error-message {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  color: #dc3545;
+  font-size: 0.875rem;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.input-container .dropdown-error {
+  right: 55px !important;
+}
+.input-container .message {
+  top: 20%;
+}
+
+.input-container .is-invalid {
+  border-color: #dc3545;
+}
