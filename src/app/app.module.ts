@@ -3,7 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxUiLoaderConfig, NgxUiLoaderModule } from 'ngx-ui-loader';
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  fgsType: 'square-jelly-box',
+  fgsSize: 80,
+};
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -11,7 +15,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxUiLoaderModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
-import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { SPINNER, NgxUiLoaderService } from 'ngx-ui-loader';
 import Swal from 'sweetalert2';
 
 @Component({
