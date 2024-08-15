@@ -1,101 +1,214 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s" id="footer">
-    <div class="container">
+<div
+  class="container-fluid bg-dark text-light mt-5 wow fadeInUp"
+  data-wow-delay="0.1s"
+  id="footer"
+>
+  <div class="container">
+    <div class="row gx-5">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4"
+        >
+          <a href="#home" class="navbar-brand">
+            <h2 class="m-0 text-white">
+              <i class="fa fa-user-tie me-2"></i>DuhaSoftwares
+            </h2>
+          </a>
+          <p class="mt-3 mb-4">
+            We are a leading software and website development company based in
+            Jammu and Kashmir, Pampore. Our mission is to deliver high-quality
+            digital solutions tailored to your business needs.
+          </p>
+          <div class="" style="position: relative">
+            <ngx-ui-loader [loaderId]="'loader-02'"></ngx-ui-loader>
+
+            <form (ngSubmit)="requestSignUp()" [formGroup]="signUpRequestForm">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control border-white p-3"
+                  [attr.placeholder]="
+                    signUpRequestForm.get('email')?.invalid &&
+                    (signUpRequestForm.get('email')?.dirty ||
+                      signUpRequestForm.get('email')?.touched)
+                      ? ''
+                      : 'Your Email'
+                  "
+                  formControlName="email"
+                  name="email"
+                  required
+                  [ngClass]="{
+                    'is-invalid':
+                      signUpRequestForm.get('email')?.invalid &&
+                      (signUpRequestForm.get('email')?.dirty ||
+                        signUpRequestForm.get('email')?.touched)
+                  }"
+                />
+
+                <div class="error-message">
+                  <small
+                    *ngIf="
+                    signUpRequestForm.get('email')?.errors?.['required'] &&
+                    (signUpRequestForm.get('email')?.dirty || signUpRequestForm.get('email')?.touched)
+                  "
+                    class="text-danger"
+                  >
+                    Email is required.
+                  </small>
+
+                  <small
+                    *ngIf="
+                    signUpRequestForm.get('email')?.errors?.['email'] &&
+                    (signUpRequestForm.get('email')?.dirty || signUpRequestForm.get('email')?.touched)
+                  "
+                    class="text-danger"
+                  >
+                    Email is not Valid!.
+                  </small>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-6">
         <div class="row gx-5">
-            <div class="col-lg-4 col-md-6 footer-about">
-                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
-                    <a href="#home" class="navbar-brand">
-                        <h2 class="m-0 text-white"><i class="fa fa-user-tie me-2"></i>DuhaSoftwares</h2>
-                    </a>
-                    <p class="mt-3 mb-4">We are a leading software and website development company based in Jammu and Kashmir, Pampore. Our mission is to deliver high-quality digital solutions tailored to your business needs.</p>
-                    <form (ngSubmit)="requestSignUp()" [formGroup]="signUpRequestForm">
-                        <div class="input-group">
-                            <input
-                            type="email"
-                            class="form-control border-white p-3"
-                            placeholder="Your Email"
-                            formControlName="email"
-                            name="email"
-                            style="height: 55px;"
-                            required
-                          />
-                          <div *ngIf="signUpRequestForm.get('email')?.invalid && (signUpRequestForm.get('email')?.dirty || signUpRequestForm.get('email')?.touched)">
-                            <small class="text-danger">Please enter a valid email address.</small>
-                          </div>
-                            <button type="submit" class="btn btn-dark" [disabled]="signUpRequestForm.invalid">Sign Up</button>
-                        </div>
-                    </form>
-                </div>
+          <div class="col-lg-4 col-md-12 pt-5 mb-5">
+            <div
+              class="section-title section-title-sm position-relative pb-3 mb-4"
+            >
+              <h3 class="text-light mb-0">Get In Touch</h3>
             </div>
-            <div class="col-lg-8 col-md-6">
-                <div class="row gx-5">
-                    <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="text-light mb-0">Get In Touch</h3>
-                        </div>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-geo-alt text-primary me-2"></i>
-                            <p class="mb-0">,Jammu and Kashmir , India</p>
-                        </div>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-envelope-open text-primary me-2"></i>
-                            <p class="mb-0"><a href="mailto:duhasoftwares@outlook.com"></a> duhasoftwares@outlook.com</p>
-                        </div>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-telephone text-primary me-2"></i>
-                            <p class="mb-0"><a href="tel:+919797970349">+91 9797970349</a></p>
-                        </div>
-                        <div class="d-flex mt-4">
-                            <a class="btn btn-primary btn-square me-2" href="https://x.com/DuhaSoftwares?t=bjKZBS8IWr0suNAPCkcA7g&s=09"><i class="fab fa-twitter fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square me-2" href="https://www.facebook.com/profile.php?id=61562777007791"><i class="fab fa-facebook-f fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square me-2" href="https://www.linkedin.com/in/duha-softwares-9a3a21319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square" href="https://www.instagram.com/duhasoftwares?igsh=dm8ybW43b2R0Mno="><i class="fab fa-instagram fw-normal"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="text-light mb-0">Quick Links</h3>
-                        </div>
-                        <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="#home"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                            <a class="text-light mb-2" href="#about-us"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                            <a class="text-light mb-2" href="#our-services"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                            <a class="text-light mb-2" href="#our-team"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
-                            <a class="text-light mb-2" href="#our-blogs"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                            <a class="text-light" href="#contact-us"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="text-light mb-0">Popular Links</h3>
-                        </div>
-                        <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="#home"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                            <a class="text-light mb-2" href="#about-us"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                            <a class="text-light mb-2" href="#our-services"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                            <a class="text-light mb-2" href="#our-team"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
-                            <a class="text-light mb-2" href="#our-blog"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                            <a class="text-light" href="#contact-us"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex mb-2">
+              <i class="bi bi-geo-alt text-primary me-2"></i>
+              <p class="mb-0">Jammu and Kashmir , India</p>
             </div>
+            <div class="d-flex mb-2">
+              <i class="bi bi-envelope-open text-primary me-2"></i>
+              <p class="mb-0">
+                <a href="mailto:duhasoftwares@outlook.com"></a>
+                duhasoftwares&#64;outlook.com
+              </p>
+            </div>
+            <div class="d-flex mb-2">
+              <i class="bi bi-telephone text-primary me-2"></i>
+              <p class="mb-0"><a href="tel:+919797970349">+91 9797970349</a></p>
+            </div>
+            <div class="d-flex mt-4">
+              <a
+                class="btn btn-primary btn-square me-2"
+                href="https://x.com/DuhaSoftwares?t=bjKZBS8IWr0suNAPCkcA7g&s=09"
+                ><i class="fab fa-twitter fw-normal"></i
+              ></a>
+              <a
+                class="btn btn-primary btn-square me-2"
+                href="https://www.facebook.com/profile.php?id=61562777007791"
+                ><i class="fab fa-facebook-f fw-normal"></i
+              ></a>
+              <a
+                class="btn btn-primary btn-square me-2"
+                href="https://www.linkedin.com/in/duha-softwares-9a3a21319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                ><i class="fab fa-linkedin-in fw-normal"></i
+              ></a>
+              <a
+                class="btn btn-primary btn-square"
+                href="https://www.instagram.com/duhasoftwares?igsh=dm8ybW43b2R0Mno="
+                ><i class="fab fa-instagram fw-normal"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+            <div
+              class="section-title section-title-sm position-relative pb-3 mb-4"
+            >
+              <h3 class="text-light mb-0">Quick Links</h3>
+            </div>
+            <div class="link-animated d-flex flex-column justify-content-start">
+              <a class="text-light mb-2" href="#home"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Home</a
+              >
+              <a class="text-light mb-2" href="#about-us"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a
+              >
+              <a class="text-light mb-2" href="#our-services"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Our
+                Services</a
+              >
+              <a class="text-light mb-2" href="#our-team"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Meet The
+                Team</a
+              >
+              <a class="text-light mb-2" href="#our-blogs"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Latest
+                Blog</a
+              >
+              <a class="text-light" href="#contact-us"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Contact
+                Us</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+            <div
+              class="section-title section-title-sm position-relative pb-3 mb-4"
+            >
+              <h3 class="text-light mb-0">Popular Links</h3>
+            </div>
+            <div class="link-animated d-flex flex-column justify-content-start">
+              <a class="text-light mb-2" href="#home"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Home</a
+              >
+              <a class="text-light mb-2" href="#about-us"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a
+              >
+              <a class="text-light mb-2" href="#our-services"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Our
+                Services</a
+              >
+              <a class="text-light mb-2" href="#our-team"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Meet The
+                Team</a
+              >
+              <a class="text-light mb-2" href="#our-blog"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Latest
+                Blog</a
+              >
+              <a class="text-light" href="#contact-us"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Contact
+                Us</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-<div class="container-fluid text-white" style="background: #061429;">
-    <div class="container text-center">
-        <div class="row justify-content-end">
-            <div class="col-lg-8 col-md-6">
-                <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
-                    <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">DuhaSoftwares</a>. All Rights Reserved.
-                    Designed and Developed by <a class="text-white border-bottom" href="https://www.linkedin.com/in/musaib-gul-5387ab20b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Musaib</a></p>
-                </div>
-            </div>
+<div class="container-fluid text-white" style="background: #061429">
+  <div class="container text-center">
+    <div class="row justify-content-end">
+      <div class="col-lg-8 col-md-6">
+        <div
+          class="d-flex align-items-center justify-content-center"
+          style="height: 75px"
+        >
+          <p class="mb-0">
+            &copy;
+            <a class="text-white border-bottom" href="#">DuhaSoftwares</a>. All
+            Rights Reserved. Designed and Developed by
+            <a class="text-white border-bottom" href="#">DuhaSoftwares</a>
+          </p>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- Footer End -->
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"
+  ><i class="bi bi-arrow-up"></i
+></a>

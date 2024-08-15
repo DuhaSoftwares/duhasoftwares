@@ -1,0 +1,41 @@
+// .position-relative {
+//   position: relative;
+// }
+
+// .input-container {
+//   position: relative;
+// }
+
+// .input-container .form-control,
+// .input-container .form-select {
+//   padding-right: 120px;
+// }
+
+// .input-container .error-message {
+//   position: absolute;
+//   top: 48%;
+//   right: 111px;
+//   z-index: 999;
+//   transform: translateY(-50%);
+//   color: #dc3545;
+//   font-size: 0.875rem;
+//   pointer-events: none;
+//   white-space: nowrap;
+// }
+// .input-container .dropdown-error {
+//   right: 55px !important;
+// }
+// .input-container .message {
+//   top: 20%;
+// }
+
+// .input-container .is-invalid {
+//   border-color: #dc3545;
+// }
+.error-message {
+  position: absolute;
+  bottom: -10%;
+  bottom: 30%;
+  right: 39%;
+  z-index: 999;
+}
