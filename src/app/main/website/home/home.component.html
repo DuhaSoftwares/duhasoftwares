@@ -1,4 +1,4 @@
-<div class="container-fluid position-relative p-0">
+<div class="container-fluid position-relative p-0" id="home">
   <div
     id="header-carousel"
     class="carousel slide carousel-fade"
@@ -940,7 +940,13 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Your Name"
+                    [attr.placeholder]="
+                      contactForm.get('name')?.invalid &&
+                      (contactForm.get('name')?.dirty ||
+                        contactForm.get('name')?.touched)
+                        ? ''
+                        : 'Please Enter Your Name Here.'
+                    "
                     formControlName="name"
                     name="name"
                     [ngClass]="{
@@ -960,7 +966,7 @@
                     class="error-message"
                   >
                     <small *ngIf="contactForm.get('name')?.errors?.['required']"
-                      >Name is required.</small
+                      >Please Enter Your Name.</small
                     >
 
                     <small *ngIf="contactForm.get('name')?.errors?.['pattern']"
@@ -974,7 +980,13 @@
                   <input
                     type="email"
                     class="form-control"
-                    placeholder="Your Email"
+                    [attr.placeholder]="
+                      contactForm.get('email')?.invalid &&
+                      (contactForm.get('email')?.dirty ||
+                        contactForm.get('email')?.touched)
+                        ? ''
+                        : 'Pleases Enter Your Email Here.'
+                    "
                     formControlName="email"
                     name="email"
                     [ngClass]="{
@@ -1038,7 +1050,13 @@
                   <textarea
                     class="form-control"
                     rows="3"
-                    placeholder="Message"
+                    [attr.placeholder]="
+                      contactForm.get('message')?.invalid &&
+                      (contactForm.get('message')?.dirty ||
+                        contactForm.get('message')?.touched)
+                        ? ''
+                        : 'Please Enter Your Message Here.'
+                    "
                     formControlName="message"
                     name="message"
                     [ngClass]="{

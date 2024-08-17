@@ -32,11 +32,7 @@ export class HomeComponent implements OnInit {
   }
   sendEmail() {
     if (this.contactForm.invalid) {
-      // Swal.fire({
-      //   title: 'Error',
-      //   text: 'Invalid Details!',
-      //   icon: 'warning',
-      // });
+     
       this.contactForm.markAllAsTouched();
       return;
     } else {
